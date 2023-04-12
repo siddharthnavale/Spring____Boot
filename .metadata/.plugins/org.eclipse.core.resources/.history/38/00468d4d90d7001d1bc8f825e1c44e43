@@ -1,0 +1,29 @@
+package com.example.demo.Service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.Entity.User;
+import com.example.demo.Repositoty.UserRepository;
+import com.example.demo.dto.UserDto;
+
+@Service
+public class UserServiceImpl implements UserService{
+
+	@Autowired
+	private UserRepository  UserRepository;
+	
+	@Override
+	public void addUser(UserDto user) {
+		
+	User u = new User();
+	u.setId(user.getId());
+	u.setName(user.getName());
+	u.setEmail(user.getEmail());
+	
+	
+		UserRepository.save(user);
+		
+	}
+
+}

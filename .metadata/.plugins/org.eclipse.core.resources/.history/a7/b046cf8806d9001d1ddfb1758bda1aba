@@ -1,0 +1,9 @@
+#	While File Uploading
+#   multipart Configuration uploads
+spring.servlet.multipart.enabled=true
+
+#Max Size
+spring.servlet.multipart.max-file-size=300MB
+
+#Min Size
+spring.servlet.multipart.file-size-threshold=1KB

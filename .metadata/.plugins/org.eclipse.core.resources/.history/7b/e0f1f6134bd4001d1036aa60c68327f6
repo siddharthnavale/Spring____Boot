@@ -1,0 +1,27 @@
+package com.example.demo;
+
+import java.util.ArrayList;
+
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.example.demo.Entity.Mobile;
+
+@SpringBootApplication
+public class PaginationUsingDtoApplication implements CommandLineRunner{
+
+	public static void main(String[] args) {
+		SpringApplication.run(PaginationUsingDtoApplication.class, args);
+	}
+
+	@Override
+	public void run(String... args) throws Exception {
+		
+		ArrayList<Mobile> mobiles = new ArrayList<Mobile>();
+		mobiles.add(Mobile.builder().);
+		
+		
+	}
+
+}

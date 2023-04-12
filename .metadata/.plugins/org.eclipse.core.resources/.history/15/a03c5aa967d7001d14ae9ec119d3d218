@@ -1,0 +1,9 @@
+package com.example.demo.Repositoty;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.example.demo.Entity.Laptop;
+
+public interface LaptopRepository extends JpaRepository<Laptop, Integer>  {
+
+}

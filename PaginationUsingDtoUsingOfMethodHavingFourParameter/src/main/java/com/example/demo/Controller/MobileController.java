@@ -1,0 +1,55 @@
+package com.example.demo.Controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.Dto.PageRequestDto;
+import com.example.demo.Entity.Mobile;
+import com.example.demo.Repositoty.MobileRepository;
+
+@RestController
+public class MobileController{
+	
+	
+	@Autowired
+	private MobileRepository mobileRepository;
+	
+	@PostMapping("/mobiles")
+	public Page<Mobile> getAllMobiles(@RequestBody PageRequestDto dto) {
+		
+		Pageable pagable = dto.getPagable(dto);
+		Page<Mobile> PageMobile = mobileRepository.findAll(pagable);
+		return PageMobile;
+	
+	}
+	
+	@PostMapping("/mobiles/{mobileModel}")
+	public Page<Mobile> getAllByMobileModel(@RequestBody PageRequestDto dto,
+			@PathVariable String mobileModel) {
+		
+		Pageable pagable = dto.getPagable(dto);
+		Page<Mobile> PageMobile = mobileRepository.findByMobileModelContaining(mobileModel, pagable);
+		return PageMobile;
+	
+	}
+	
+	@PostMapping("/mobiles/findMobileByAccToPrice/{price}")
+	public Page<Mobile> findMobileByAccToPrice(@RequestBody PageRequestDto dto,
+			@PathVariable int price) {
+		
+		Pageable pagable = dto.getPagable(dto);
+		Page<Mobile> PageMobile = mobileRepository.findMobileByAccToPrice(price, pagable);
+		return PageMobile;
+	
+	}
+	
+	
+	
+	
+
+}

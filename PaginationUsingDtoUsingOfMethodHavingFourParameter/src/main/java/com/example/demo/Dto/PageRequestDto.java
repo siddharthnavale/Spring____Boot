@@ -1,0 +1,35 @@
+package com.example.demo.Dto;
+
+import java.util.Objects;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class PageRequestDto {
+	
+	private int pageNo=0;
+	private int pageSize=1;
+	private Sort.Direction direction=Direction.ASC;
+	private String sortByColumn="mobileId";
+ 
+    public Pageable getPagable(PageRequestDto dto) {
+    Integer page= Objects.nonNull(dto.getPageNo()) ? dto.getPageNo():this.pageNo;
+    Integer size= Objects.nonNull(dto.getPageSize()) ? dto.getPageSize():this.pageSize;
+    Sort.Direction direction= Objects.nonNull(dto.getDirection()) ? dto.getDirection():this.direction;
+    String sortByColumn= Objects.nonNull(dto.getSortByColumn()) ? dto.getSortByColumn():this.sortByColumn;
+    PageRequest pageReuest = PageRequest.of(page, size, direction, sortByColumn);
+    
+   
+	return pageReuest;
+
+}
+	
+	
+
+}

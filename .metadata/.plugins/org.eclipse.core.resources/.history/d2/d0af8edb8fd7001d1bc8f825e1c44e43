@@ -1,0 +1,26 @@
+package com.example.demo.dto;
+
+public class UserDto {
+	package com.example.demo.Entity;
+
+	import javax.persistence.Entity;
+	import javax.persistence.Id;
+	import javax.validation.constraints.Min;
+	import javax.validation.constraints.NotBlank;
+	import javax.validation.constraints.NotEmpty;
+
+	import lombok.AllArgsConstructor;
+	import lombok.Data;
+	import lombok.NoArgsConstructor;
+
+ 
+		private int id;
+		private String name;
+		
+		@NotBlank(message="email is mandatory")
+		private String email;
+		
+
+	}
+
+}

@@ -1,0 +1,9 @@
+package com.example.demo.Controller;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UserRepository extends JpaRepository<User, ID> {
+	
+	
+
+}

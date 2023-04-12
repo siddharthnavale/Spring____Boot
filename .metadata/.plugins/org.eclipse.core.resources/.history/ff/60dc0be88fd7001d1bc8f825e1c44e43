@@ -1,0 +1,14 @@
+package com.example.demo.dto;
+
+public class UserDto {
+ 
+		private int id;
+		private String name;
+		
+		@NotBlank(message="email is mandatory")
+		private String email;
+		
+
+	}
+
+}
